@@ -1,0 +1,66 @@
+<html>
+<head>
+	<script src="p5.js"></script>
+	<script src="p5.speech.js"></script>
+	<script>
+
+	/**
+	 * Funciones para la demo
+	 */
+	function grabText(){
+		var text = '';
+		var elements = ['h1', 'h3', 'p'];
+		elements.forEach(e => document.querySelectorAll(e).forEach(domE => text += '.' + domE.textContent));
+		return text;
+	}
+
+	function play() {
+		var text = grabText();
+		myVoice.speak(text);
+	}
+
+	function privatePlay(text) {
+		if (text.length == 0) return;
+		var current = text.splice(0, 1);
+		myVoice.onEnd = privatePlay(text);
+		myVoice.speak(current);
+	}
+
+	function stop() {
+		myVoice.stop();
+	}
+
+	/**
+	 * Funciones necesarias para el uso de la librería
+	 */
+	var myVoice = new p5.Speech(); // new P5.Speech object
+	myVoice.setLang('es-AR');
+
+	function setup(){
+
+	}
+
+	function draw(){
+
+	}
+
+</script>
+</head>
+<body>
+	<button type="button" name="button" onclick="play()">Play</button>
+	<button type="button" name="button" onclick="stop()">Stop</button>
+	<h1>El bloque kirchnerista anunció que no bajará al recinto para la sesión especial por el desafuero de De Vido</h1>
+	<h3>El jefe de la bancada, Héctor Recalde, dijo que no estarán presentes en la Cámara porque el oficialismo ya "consiguió los dos tercios necesarios" para retirarle al diputado su inmunidad de arresto; reconoció que hubo diferencias internas</h3>
+	<p>El bloque de diputados del Frente para la Victoria-PJ anunció que no bajará al recinto para la sesión especial convocada por el oficialismo para debatir los pedidos de pedidos de desafuero de Julio De Vido que formularon los jueces federales Claudio Bonadio y Luis Rodríguez.</p>
+	<p>Los integrantes de la bancada que conduce Héctor Recalde anunciaron su postura en una conferencia de prensa. Recalde dijo que pese a que hubo diferencias internas sobre la posición que debían tomar, "primó la organicidad del bloque".</p>
+	<p>"No vamos a bajar al recinto porque el oficialismo consiguió los dos tercios necesarios [para aprobar el desafuero", dijo el jefe de la bancada kirchnerista.</p>
+	<p>Con críticas a la Justicia y al Gobierno, Recalde agregó: "No queríamos convalidar con nuestra presencia este hostigamiento, esta persecución contra un compañero".</p>
+	<p>El legislador del FPV denunció que "hay un plan de persecución de opositores" y que existe "un grupo de jueces y fiscales que siguen instrucciones del Poder Ejecutivo de la Nación".</p>
+	<p>"Un grupo de jueces y fiscales está sometiendo el principio de institucionalidad a una desvalorización que no conocemos en la historia", afirmó en una conferencia de prensa en la Cámara baja.</p>
+	<p>"¿Dónde está la división de poderes?", se preguntó. En ese marco, repasó varias causas judiciales que involucran a funcionarios y familiares del presidente Mauricio Macri y advirtió: "Hay insólitos sobreseimientos, de inusitada rapidez".</p>
+	<p>Mientras Recalde y el resto de los integrantes de la bancada del FPV brindaba la conferencia de prensa, el oficialismo y la mayoría de la oposición se preparaban para aprobar el desafuero de De Vido en una sesión especial,</p>
+	<p>La situación del ex funcionario dividió las aguas en el bloque del FPV en la Cámara baja. Algunos integrantes de la bancada se mostraron dispuestos a soltarle la mano a De Vido.</p>
+	<p>Ayer se debatieron varias alternativas: defender al ex ministro o dar libertad de conciencia. Finalmente, primó la opción de no bajar al recinto.</p>
+	<p>De Vido tiene dos pedidos de desafuero en su contra: uno del juez Rodríguez en la causa por la presunta defraudación millonaria con fondos destinados a obras en el Yacimiento Carbonífero Río Turbio: y otro de Bonadio en el expediente por presuntos sobreprecios en la compra de barcos de gas licuado durante el kirchnerismo. Todo indica que el oficialismo tiene asegurados los dos tercios de los votos que exige la Constitución para proceder al desafuero del ex ministro.</p>
+</body>
+</html>

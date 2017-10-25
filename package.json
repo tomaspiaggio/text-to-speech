@@ -1,0 +1,23 @@
+{
+  "name": "text-to-speech",
+  "version": "1.0.0",
+  "description": "Pasar texto a voz",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IDMNYU/p5.js-speech.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IDMNYU/p5.js-speech/issues"
+  },
+  "homepage": "https://github.com/IDMNYU/p5.js-speech#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
